@@ -4,28 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      input {
-        width: 250px;
-        height: 40px;
-        border: 1px solid #dadada;
-        padding: 0px 15px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-      }
-    </style>
+    <link rel="stylesheet" href="../css/USERstyle.css"
   </head>
+
   <body>
+    
+    <div class="member">
+
+    <!-- Title -->
     <h1>회원가입</h1>
+
+    <!-- Title-sub -->
     <h5>*필수입력사항</h5>
-    <div>
-      <div>
-        아이디*
-        <input type="text" name="id" placeholder="아이디를 입력하세요." />
-        <button type="button">중복확인</button>
+
+    <!-- Field -->
+      <div class="field">
+        <b>아이디*</b>
+        <span class="placeholder-text">
+          <input type="text" name="id" />
+        </span>
+        <input type="button" value="중복확인">
       </div>
       <div>
         비밀번호*
@@ -111,7 +109,6 @@
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
         />
       </div>
-    </div>
     <!--
       <table>
       <tr>
@@ -180,5 +177,7 @@
         <td></td>
       </tr>
     </table>
-  --></body>
+  -->
+</div>
+</body>
 </html>

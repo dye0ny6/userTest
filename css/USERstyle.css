@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 60px;
+    color : black;
+    margin: 0;
+  }
+  input {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:14px;
+    height: 50px;
+    padding: 5px;
+    color : black;
+    margin: 0;
+  }
+  .member{
+    width: 400px;
+    /* border: 1px solid #000; */
+    margin: auto; /*중앙 정렬*/
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+.placeholer-text{
+  display: block; /*span 으로 감싸서 크기영역을 블록요소로 변경*/
+  position:relative;
+  font-size:25px;
+  /* border: 1px solid #000; */
+}
+.member input[type=button],
+.member input[type=submit]{
+  background-color: transparent;
+  color: violet;
+  border: 1.5px solid;
+  padding: 0 15px;
+}
