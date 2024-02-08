@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor() {
+          this.name = "pika";
+          this.age = 10;
+        }
+        getMessage() {
+            return "hello!";
+        }
+      }
+      const p1 = new Person();
+      console.log(p1);
+      console.log(p1.name);
+      console.log(p1.age);
+      const result = p1.getMessage();
+      console.log(result);
+    </script>
+  </body>
+</html>
