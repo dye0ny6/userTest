@@ -1,40 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
 
 * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
-    line-height: 60px;
-    color : black;
-    margin: 0;
-  }
-  input {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size:14px;
-    height: 50px;
-    padding: 5px;
-    color : black;
-    margin: 0;
-  }
-  .member{
-    width: 400px;
-    /* border: 1px solid #000; */
-    margin: auto; /*중앙 정렬*/
-    padding: 0 20px;
-    margin-bottom: 20px;
-  }
-.placeholer-text{
-  display: block; /*span 으로 감싸서 크기영역을 블록요소로 변경*/
-  position:relative;
-  font-size:25px;
-  /* border: 1px solid #000; */
+  box-sizing: border-box;
 }
-.member input[type=button],
-.member input[type=submit]{
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: black;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0;
+}
+.notice {
+  text-align: right;
+  color: silver;
+}
+.notice span {
+  color: mediumorchid;
+}
+.field {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  line-height: 50px;
+  gap: 20px;
+}
+p {
+  margin-right: auto;
+  padding-left: 20px;
+}
+input {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  height: 50px;
+  color: black;
+  border: 1px solid silver;
+}
+label {
+  display: flex;
+  align-items: center; /* 라디오 중앙 정렬 */
+}
+.sex-field {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+.birth-field {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+#birth-input {
+  width: 110px;
+}
+.member {
+  width: 640px;
+  margin: auto; /*중앙 정렬*/
+}
+.member input[type="text"],
+.member input[type="password"],
+.member input[type="email"],
+.member input[type="tel"] {
+  width: 350px;
+  text-indent: 1em;
+}
+.member input[type="button"] {
+  width: 120px;
+  margin-right: 20px;
   background-color: transparent;
-  color: violet;
+  color: mediumorchid;
   border: 1.5px solid;
-  padding: 0 15px;
+  cursor: pointer;
+}
+.member input[type="submit"] {
+  width: 200px;
+  margin-right: 20px;
+  margin-bottom: 50px;
+  background-color: mediumorchid;
+  color: white;
+  border: 1.5px solid;
+  cursor: pointer;
+}
+/* 기본 스타일 제거 후 스타일 설정 */
+.member input[type="radio"] {
+  appearance: none; /*기본 브라우저에서 기본 스타일 제거*/
+  width: 27px;
+  height: 27px;
+  border: 1px solid silver; /* 체크되지 않았을 때의 테두리 색상 */
+  border-radius: 50%;
+  margin: 0;
+  margin-right: 1em;
+}
+input[type="radio"]:checked {
+  background-color: white; /* 원 내부 색상 */
+  border: 7px solid mediumorchid; /* 테두리와 원 사이의 색상 */
+  box-shadow: 0 0 0 1px mediumorchid; /* 테두리 색상 */ /* 퍼지값을 0으로 주지 않으면 단색으로 칠해짐 */
+}
+.blank {
+  display: inline-block;
+  width: 120px;
+  margin-right: 20px;
+}
+hr {
+  width: 640px;
+  border-top: 1px solid silver;
+  margin: 35px auto;
 }

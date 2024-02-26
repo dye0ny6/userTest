@@ -8,59 +8,76 @@
   </head>
 
   <body>
-    
+    <form
+      action="#"
+      method="get"
+      name="inputForm"
+      onsubmit="return inputCheck()"
+    >
     <div class="member">
+      <!-- Title -->
+      <h1>회원가입</h1>
 
-    <!-- Title -->
-    <h1>회원가입</h1>
-
-    <!-- Title-sub -->
-    <h5>*필수입력사항</h5>
-
-    <!-- Field -->
+      <!-- Title-sub -->
+      <div class="notice">
+        <span class="ast">*</span>필수입력사항
+      </div>
+      
+<hr />
+      <!-- Field -->
       <div class="field">
-        <b>아이디*</b>
-        <span class="placeholder-text">
-          <input type="text" name="id" />
-        </span>
-        <input type="button" value="중복확인">
+        <p>아이디*</p>
+        <input type="text" name="id" 
+        placeholder="아이디를 입력하세요." minlength="6" maxlength="15" required/>
+        <input type="button" value="중복확인" />
       </div>
-      <div>
-        비밀번호*
-        <input type="password" name="pw" placeholder="비밀번호를 입력하세요." />
+      <div class="field">
+        <p>비밀번호*</p>
+        <input type="password" name="pw" placeholder="비밀번호를 입력하세요." minlength="9" maxlength="20" required/>
+        <span class="blank"></span>
       </div>
-      <div>
-        비밀번호확인*<input
-          type="password"
-          name="pw"
-          placeholder="비밀번호를 한 번 더 입력하세요."
-        />
-      </div>
-      <div>
-        이름*
-        <input type="text" name="name" placeholder="이름을 입력하세요." />
-      </div>
-      <div>
-        이메일*
-        <input type="text" name="email" placeholder="예: dayeon@tjoeun.com" />
-      </div>
-      <div>
-        휴대폰*
+      <div class="field">
+        <p>비밀번호확인*</p>
         <input
-          type="text"
-          name="phone"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-          placeholder="숫자만 입력하세요."
+          type="password"
+          name="pw2"
+          placeholder="비밀번호를 한 번 더 입력하세요."
+          minlength="9" maxlength="20"
+          required
         />
+        <span class="blank"></span>
       </div>
-      <div>
-        주소*
+      <div class="field">
+        <p>이름*</p>
+        <input type="text" name="name" placeholder="이름을 입력하세요." required/>
+        <span class="blank"></span>
+      </div>
+      <div class="field">
+        <p>이메일*</p>
+        <input type="email" name="email" placeholder="예: dayeon@tjoeun.com" />
+        <input type="button" value="중복확인" pattern="[a-zA-Z0-9][@][a-zA-Z0-9]*\.[a-zA-Z]*" required/>
+      </div>
+      <div class="field">
+        <p>휴대폰*</p>
+        <input
+          type="tel"
+          name="phone"
+          maxlength="11"
+          placeholder="예: 01012345678"
+          pattern="(010|016|011)[0-9]{3,4}[0-9]{4}"
+          required
+        />
+        <input type="button" value="인증번호 받기" />
+      </div>
+      <div class="field">
+        <p>우편번호</p>
         <label>
           <input
             type="text"
             id="address"
             onclick="execDaumPostcode()"
-            placeholder="주소검색"
+            placeholder="우편번호 검색"
+            required
             readonly
           />
         </label>
@@ -75,109 +92,81 @@
             }).open();
           }
         </script>
+        <span class="blank"></span>
       </div>
-      <div>
-        성별
-        <input type="radio" name="sex" value="male" />남자
-        <input type="radio" name="sex" value="female" />여자
-        <input type="radio" name="sex" value="non" />선택 안 함
+      <div class="field">
+        <p>성별</p>
+        <div class="sex-field">
+          <label> <input type="radio" name="sex" value="men" />남자 </label>
+          <label> <input type="radio" name="sex" value="women" />여자 </label>
+          <label>
+            <input type="radio" name="sex" value="non" />선택 안 함
+          </label>
+        </div>
+        <span class="blank"></span>
       </div>
-      <div>
-        <label for="birth">생년월일</label>
-        <input
-          type="text"
-          id="birthYear"
-          name="birthYear"
-          placeholder="YYYY"
-          class="form-control"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-        <input
-          type="text"
-          id="birthMonth"
-          name="birthMonth"
-          placeholder="MM"
-          class="form-control"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
-        <input
-          type="text"
-          id="birthDay"
-          name="birthDay"
-          placeholder="DD"
-          class="form-control"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-        />
+      <div class="field">
+        <p>생년월일</p>
+        <div class="birth-field">
+          <input
+            id="birth-input"
+            type="text"
+            name="birthYear"
+            maxlength="4"
+            placeholder="YYYY"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+          />
+          <input
+            id="birth-input"
+            type="text"
+            name="birthMonth"
+            maxlength="2"
+            placeholder="MM"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+          />
+          <input
+            id="birth-input"
+            type="text"
+            name="birthDay"
+            maxlength="2"
+            placeholder="DD"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+          />
+        </div>
+        <span class="blank"></span>
       </div>
-    <!--
-      <table>
-      <tr>
-        <td>아이디</td>
-        <td colspan="3">
-          <input type="text" name="id" placeholder="아이디를 입력하세요." />
-        </td>
-        <td><button type="button">중복</button></td>
-      </tr>
-      <tr>
-        <td>비밀번호</td>
-        <td colspan="3">
-          <input type="password" name="pw" />
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>비밀번호확인</td>
-        <td colspan="3"><input type="password" name="checkpw" /></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>이름</td>
-        <td colspan="3">
-          <input type="text" name="name" value="이름을 입력하세요" />
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>이메일</td>
-        <td colspan="3">
-          <input type="text" name="email" value="예: dayeon@tjoeun.com" />
-        </td>
-        <td><button type="button">중복확인</button></td>
-      </tr>
-      <tr>
-        <td>휴대폰</td>
-        <td colspan="3">
-          <input type="text" name="phone" value="숫자만 입력하세요" />
-        </td>
-        <td><button type="button">인증번호 받기</button></td>
-      </tr>
-      <tr>
-        <td>주소</td>
-        <td colspan="3"><input type="text" name="adress" /></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>성별</td>
-        <td><input type="radio" name="sex" value="male" />남자</td>
-        <td><input type="radio" name="sex" value="female" />여자</td>
-        <td><input type="radio" name="sex" value="non" />선택 안 함</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>생년월일</td>
-        <td colspan="3"><input type="date" name="date" /></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>추가입력 사항</td>
-        <td colspan="2">
-          <input type="radio" name="sex" value="male" />친구초대 추천인 아이디
-        </td>
-        <td><input type="radio" name="sex" value="female" />참여 이벤트명</td>
-        <td></td>
-      </tr>
-    </table>
-  -->
-</div>
-</body>
+      <hr />
+      <div class="field">
+      <input type="submit" value="가입하기"/>
+      </div>
+    </div>
+      </div>
+    </div>
+    </form>
+    <script>
+      function inputCheck() {
+        let inputForm = document.inputForm;
+        if (!inputForm.id.value) {
+          alert("아이디를 입력하세요.");
+          return false;
+        }
+        if (!inputForm.pw.value) {
+          alert("비밀번호를 입력하세요.");
+          return false;
+        }
+        if (!inputForm.name.value) {
+          alert("이름을 입력하세요.");
+          return false;
+        }
+        if (!inputForm.email.value) {
+          alert("이메일을 입력하세요.");
+          return false;
+        }
+        if (!inputForm.phone.value) {
+          alert("핸드폰 번호를 입력하세요.");
+          return false;
+        }
+      }
+    </script>
+  </body>
 </html>
